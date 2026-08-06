@@ -1,3 +1,6 @@
+**NOTE:** image thumbnailer from KIO-extras package now support DDS file format
+(https://github.com/KDE/kio-extras/blob/master/thumbnail/imagethumbnail.json#L30).
+
 # dds10-thumbnailer-kde
 
 dds10-thumbnailer-kde is a plugin for KDE 6 that creates thumbnail for Direct 
