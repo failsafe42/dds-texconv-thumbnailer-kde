@@ -72,7 +72,7 @@ KIO::ThumbnailResult DDSCreator::create(const KIO::ThumbnailRequest &request) {
 	dds_path_w = file_dds.canonicalFilePath().toStdWString();
 	png_dir_w = file_png_dir.canonicalPath().toStdWString();
 
-	wchar_t* argv[] = {L"-ft", L"png", L"-f", L"rgba", L"-o", png_dir_w.data(), L"--", dds_path_w.data()};
+	wchar_t* argv[] = {L"-ft", L"png", L"-f", L"rgba", L"-srgbo", L"-o", png_dir_w.data(), L"--", dds_path_w.data()};
 
 	texconv(sizeof(argv) / sizeof(argv[0]), argv);
 
