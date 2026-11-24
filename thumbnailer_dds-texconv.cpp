@@ -62,22 +62,29 @@ QString genrandom() {
 // Thumbnailer /////////////////////////////////////////////////////////////////
 KIO::ThumbnailResult DDSCreator::create(const KIO::ThumbnailRequest &request) {
 	QFileInfo file_dds(request.url().toLocalFile());
+	
+	// create unique temporary directory
 	QString temp_dir_prefix = QStringLiteral("/tmp/texconvthumbnailer-");
 	QDir file_png_dir(temp_dir_prefix+genrandom());
 	while (file_png_dir.exists()){
 		file_png_dir.setPath(temp_dir_prefix+genrandom());
 	}
 	file_png_dir.mkpath(QStringLiteral("."));
+
+	// get paths for texconv
 	std::wstring dds_path_w, png_dir_w;
 	dds_path_w = file_dds.canonicalFilePath().toStdWString();
 	png_dir_w = file_png_dir.canonicalPath().toStdWString();
 
+	// convert to png
 	wchar_t* argv[] = {L"-ft", L"png", L"-f", L"rgba", L"-srgbo", L"-o", png_dir_w.data(), L"--", dds_path_w.data()};
-
 	texconv(sizeof(argv) / sizeof(argv[0]), argv);
 
 	// fill the QImage
 	QImage img(file_png_dir.canonicalPath()+QLatin1Char('/')+file_dds.baseName()+QStringLiteral(".png"));
+
+	// delete temporary directory
+	file_png_dir.removeRecursively();
 
 	return KIO::ThumbnailResult::pass(img);
 }
