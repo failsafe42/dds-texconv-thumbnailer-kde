@@ -1,10 +1,14 @@
-/*  SPDX-FileCopyrightText: 2022 Mathieu Eyraud 
+/*  SPDX-FileCopyrightText: 2022 Mathieu Eyraud
+	SPDX-FileCopyrightText: 2026 failsafe42
 	SPDX-License-Identifier: GPL-2.0-or-later
-	
+
+	https://github.com/failsafe42/dds-texconv-thumbnailer-kde
+
+	dds-texconv-thumbnailer-kde
+	Copyright (C) 2026 failsafe42
+
+	Based on dds10-thumbnailer-kde by Mathieu Eyraud:
 	https://github.com/meyraud705/dds10-thumbnailer-kde
-	
-	dds10-thumbnailer-kde
-	Copyright (C) 2022 Mathieu Eyraud
 
 	This program is free software: you can redistribute it and/or modify
 	it under the terms of the GNU General Public License as published by
