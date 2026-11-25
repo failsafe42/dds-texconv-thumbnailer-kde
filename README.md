@@ -1,19 +1,16 @@
 **NOTE:** image thumbnailer from KIO-extras package now support DDS file format
 (https://github.com/KDE/kio-extras/blob/master/thumbnail/imagethumbnail.json#L30).
 
-# dds10-thumbnailer-kde
+# dds-texconv-thumbnailer-kde
 
-dds10-thumbnailer-kde is a plugin for KDE 6 that creates thumbnail for Direct 
-Draw Surface (DDS) images. It supports DX10 version of DDS with BC1/DXT1, 
-BC2/DXT3, BC3/DXT5 BC4/ATI1, BC5/ATI2 and BC7 encodings.
-
-If you are looking for the KDE 5 version, check the `plasma5` branch.
+dds-texconv-thumbnailer-kde is a plugin for KDE 6 that creates thumbnail for Direct 
+Draw Surface (DDS) images using [Texconv-Custom-DLL](https://github.com/matyalatte/Texconv-Custom-DLL).
 
 ## Build and install
 
 Install dependencies:
 
- - openSUSE: `sudo zypper install cmake kf6-extra-cmake-modules qt6-core-devel qt6-gui-devel kf6-kio-devel`
+ - Arch: `sudo pacman -S cmake extra-cmake-modules qt6-base kio`
 
 Build:
 

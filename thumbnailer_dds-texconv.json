@@ -1,0 +1,9 @@
+{
+	"CacheThumbnail": true,
+	"KPlugin": {
+		"MimeTypes": [
+			"image/vnd.ms-dds"
+		],
+		"Name": "Direct Draw Surface (DDS) (dds-texconv-thumbnailer-kde)"
+	}
+}

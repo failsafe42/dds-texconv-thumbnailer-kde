@@ -1,5 +1,5 @@
 cmake_minimum_required(VERSION 3.16.0)
-project(dds10-thumbnailer-kde)
+project(dds-texconv-thumbnailer-kde)
 
 set(QT_MIN_VERSION "6.0.0")
 set(KF5_MIN_VERSION "6.0.0")
@@ -20,5 +20,6 @@ include(KDECompilerSettings NO_POLICY_SCOPE)
 find_package(Qt6 ${QT_MIN_VERSION} CONFIG REQUIRED COMPONENTS Core Gui)
 find_package(KF6 ${KF5_MIN_VERSION} REQUIRED COMPONENTS KIO)
 
-kcoreaddons_add_plugin(dds10thumbnail SOURCES thumbnailer_dds10.cpp INSTALL_NAMESPACE "kf6/thumbcreator")
-target_link_libraries(dds10thumbnail PRIVATE KF6::KIOGui Qt::Gui)
+kcoreaddons_add_plugin(ddstexconvthumbnail SOURCES thumbnailer_dds-texconv.cpp INSTALL_NAMESPACE "kf6/thumbcreator")
+target_link_libraries(ddstexconvthumbnail PRIVATE libtexconv.so)
+target_link_libraries(ddstexconvthumbnail PRIVATE KF6::KIOGui Qt::Gui)

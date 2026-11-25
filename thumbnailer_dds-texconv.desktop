@@ -1,0 +1,9 @@
+[Desktop Entry]
+Encoding=UTF-8
+Type=Service
+Name=Direct Draw Surface (DDS) (dds-texconv-thumbnailer-kde)
+X-KDE-ServiceTypes=ThumbCreator
+MimeType=image/vnd.ms-dds;
+CacheThumbnail=true
+X-KDE-Library=ddstexconvthumbnail
+ThumbnailerVersion=1
