@@ -15,7 +15,7 @@ Install other dependencies:
 Build:
 
 ```
-cmake -B build -DKDE_INSTALL_USE_QT_SYS_PATHS=ON -DBUILD_WITH_QT6=ON -DCMAKE_BUILD_TYPE=Release ..
+cmake -B build -DKDE_INSTALL_USE_QT_SYS_PATHS=ON -DBUILD_WITH_QT6=ON -DCMAKE_BUILD_TYPE=Release
 cmake --build build
 sudo cmake --install build
 kbuildsycoca6
