@@ -1,11 +1,11 @@
 # dds-texconv-thumbnailer-kde
 
 dds-texconv-thumbnailer-kde is a plugin for KDE 6 that creates thumbnails for Direct 
-Draw Surface (DDS) images using [Texconv-Custom-DLL](https://github.com/matyalatte/Texconv-Custom-DLL).  
+Draw Surface (DDS) images using [Texconv-Multiplatform](https://github.com/failsafe42/Texconv-Multiplatform).  
 Based on [dds10-thumbnailer-kde](https://github.com/meyraud705/dds10-thumbnailer-kde) by [meyraud705](https://github.com/meyraud705).
 
 ## Build and install
-Install libtexconv.so from [Texconv-Custom-DLL](https://github.com/matyalatte/Texconv-Custom-DLL)
+Install libtexconv.so from [Texconv-Multiplatform](https://github.com/failsafe42/Texconv-Multiplatform)
 
 Install other dependencies:
 

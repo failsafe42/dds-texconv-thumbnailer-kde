@@ -47,6 +47,21 @@ K_PLUGIN_CLASS_WITH_JSON(DDSCreator, "thumbnailer_dds-texconv.json")
 DDSCreator::DDSCreator(QObject *parent, const QVariantList &args) : KIO::ThumbnailCreator(parent, args) {
 }
 
+bool isSRGB(uint32_t format){
+	switch(format){
+		case 29:
+    	case 72:
+		case 75:
+		case 78:
+		case 91:
+		case 93:
+		case 99:
+			return true;
+		default:
+			return false;
+	}
+}
+
 // Thumbnailer /////////////////////////////////////////////////////////////////
 KIO::ThumbnailResult DDSCreator::create(const KIO::ThumbnailRequest &request) {
 	QFileInfo file_dds(request.url().toLocalFile());
@@ -58,10 +73,19 @@ KIO::ThumbnailResult DDSCreator::create(const KIO::ThumbnailRequest &request) {
 	std::wstring dds_path_w, png_dir_w;
 	dds_path_w = file_dds.canonicalFilePath().toStdWString();
 	png_dir_w = file_png_dir.path().toStdWString();
+	
+	TexMetadata info;
+	wchar_t* diagargs[] = {L"info", L"--", dds_path_w.data()};
+	texdiag(sizeof(diagargs) / sizeof(diagargs[0]), diagargs, info);
+
+	wchar_t* format = L"R8G8B8A8_UNORM";
+	if(isSRGB(info.format)){
+		format = L"R8G8B8A8_UNORM_SRGB";
+	}
 
 	// convert to png
-	wchar_t* argv[] = {L"-ft", L"png", L"-f", L"rgba", L"-srgbo", L"-o", png_dir_w.data(), L"--", dds_path_w.data()};
-	texconv(sizeof(argv) / sizeof(argv[0]), argv);
+	wchar_t* convargs[] = {L"-ft", L"png", L"-f", format, L"-o", png_dir_w.data(), L"--", dds_path_w.data()};
+	texconv(sizeof(convargs) / sizeof(convargs[0]), convargs);
 
 	// fill the QImage
 	QImage img(file_png_dir.path()+QLatin1Char('/')+file_dds.baseName()+QStringLiteral(".png"));
